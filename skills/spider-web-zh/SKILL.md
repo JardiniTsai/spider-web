@@ -4,13 +4,14 @@ description: >-
   Use only when the user explicitly names spider-web-zh (e.g. "$spider-web-zh", "用
   spider-web-zh", "spider-web-zh 這個") to frame and then broadly explore a vague idea or
   task into many materially distinct possibilities before choosing or
-  building. Never start it from generic wording like "幫我想幾個方向".
+  building. Do not start it when the user names spider-web without -zh, which is
+  a separate skill. Never start it from generic wording like "幫我想幾個方向".
 ---
 # spider-web-zh：先定框，再展開，最後交給 grill-me
 
 ## 0. 只能明確呼叫（鎖）
 
-- 只有使用者明確寫出 spider-web-zh（例如 `$spider-web-zh`、「用 spider-web-zh」、「跑 spider-web-zh」）時才啟動。
+- 只有使用者明確寫出 spider-web-zh（例如 `$spider-web-zh`、「用 spider-web-zh」、「跑 spider-web-zh」）時才啟動。名稱必須完全相符：只寫 spider-web（沒有 -zh）是另一個 skill，不觸發本版。
 - 「幫我想幾個方向」「發散一下」「腦力激盪」這類說法**不得**啟動。可以問一句「要不要用 spider-web-zh 跑？」，但不得自行開始。
 - 簡單任務（改短一封信、修一個錯字）直接做，不提 spider-web-zh。
 - **唯一例外：回網換枝的重新進入**。使用者明確啟動過的那次流程，在拷問階段觸發 §8 換枝出口時，使用者或 agent 可以重新叫 spider-web-zh，但只能帶著既有的 `handoff.md` 和 `web.md` 進入「換枝模式」，不得開新題目。
@@ -30,7 +31,7 @@ description: >-
 ```
 
 - 每個階段結束時，用一句話告訴使用者：現在在哪個階段、下一步是什麼。
-- 每次執行的檔案放在工作區的 `spider-web-runs/<YYYYMMDD>-<短題目>/`。階段 1 結束就建立資料夾並開始寫 `web.md`，之後每個階段都更新它；階段 5 再寫 `handoff.md`。
+- 每次執行的檔案放在工作區的 `spider-web-zh-runs/<YYYYMMDD>-<短題目>/`（不要用 `spider-web-runs/`，那是另一個語言版本的目錄）。階段 1 結束就建立資料夾並開始寫 `web.md`，之後每個階段都更新它；階段 5 再寫 `handoff.md`。
 - 成本上限見 §9，任何階段都不得超過。
 
 ## 2. 階段 1：定框拷問

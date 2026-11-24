@@ -9,7 +9,9 @@ Copy the chosen folder(s) into the agent's skills directory, keeping those folde
 
 ## Install companions
 
-Whichever language version you install, also install `grill-me` and `grilling` from [mattpocock/skills](https://github.com/mattpocock/skills):
+Whichever language version you install, also install `grill-me` and `grilling` from [mattpocock/skills](https://github.com/mattpocock/skills). Stage 1 follows `grilling`'s questioning style without loading that skill; stage 6 starts `grill-me` (which starts `grilling`) and interrogates only the chosen route.
+
+Install them from:
 
 - [`skills/productivity/grill-me/`](https://github.com/mattpocock/skills/tree/main/skills/productivity/grill-me)
 - [`skills/productivity/grilling/`](https://github.com/mattpocock/skills/tree/main/skills/productivity/grilling)
