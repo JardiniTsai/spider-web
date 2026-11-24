@@ -1,0 +1,7 @@
+.env*
+credentials*
+.DS_Store
+*~
+*.bak
+*.swp
+*.swo
