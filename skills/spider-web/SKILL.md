@@ -4,15 +4,14 @@ description: >-
   Use only when the user explicitly names spider-web (e.g. "$spider-web", "use
   spider web", "spider-web this") to frame and then broadly explore a vague idea
   or task into many materially distinct possibilities before choosing or
-  building. Do not start it when the user names spider-web-zh, which is a
-  separate skill. Never start it from generic wording like "help me think of a
+  building. Never start it from generic wording like "help me think of a
   few directions" or "幫我想幾個方向".
 ---
 # spider-web: frame first, expand, then hand off to grill-me
 
 ## 0. Explicit invocation only (the lock)
 
-- Start only when the user explicitly writes spider-web (for example `$spider-web`, "use spider web", or "run spider-web"). The name must match exactly: `$spider-web-zh` is a different skill and must not start this one.
+- Start only when the user explicitly writes spider-web (for example `$spider-web`, "use spider web", or "run spider-web").
 - Wording such as "help me think of a few directions", "let's diverge", or "brainstorm" **must not** start it. You may ask "Want to run this with spider-web?", but you must not start on your own.
 - For simple tasks (shortening a letter, fixing a typo), just do the work. Do not mention spider-web.
 - **Sole exception: re-entry for a branch switch.** If the user has already explicitly started this run, and the interrogation stage hits the §8 branch-switch exit, the user or the agent may call spider-web again — but only in "branch-switch mode", carrying the existing `handoff.md` and `web.md`. Do not open a new topic.
@@ -32,7 +31,7 @@ Explicitly invoke spider-web
 ```
 
 - At the end of each stage, tell the user in one sentence which stage you are in and what comes next.
-- Put files for each run in `spider-web-runs/<YYYYMMDD>-<short-title>/` under the working directory (do not use `spider-web-zh-runs/`, which belongs to the other language version). Create the folder and start writing `web.md` at the end of Stage 1, then update it at every later stage; write `handoff.md` in Stage 5.
+- Put files for each run in `spider-web-runs/<YYYYMMDD>-<short-title>/` under the working directory. Create the folder and start writing `web.md` at the end of Stage 1, then update it at every later stage; write `handoff.md` in Stage 5.
 - Cost caps are in §9. No stage may exceed them.
 
 ## 2. Stage 1: Framing interrogation

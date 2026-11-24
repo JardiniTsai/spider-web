@@ -1,42 +1,41 @@
 ---
-name: spider-web-zh
+name: spider-web
 description: >-
-  Use only when the user explicitly names spider-web-zh (e.g. "$spider-web-zh", "用
-  spider-web-zh", "spider-web-zh 這個") to frame and then broadly explore a vague idea or
+  Use only when the user explicitly names spider-web (e.g. "$spider-web", "用 spider
+  web", "spider-web 這個") to frame and then broadly explore a vague idea or
   task into many materially distinct possibilities before choosing or
-  building. Do not start it when the user names spider-web without -zh, which is
-  a separate skill. Never start it from generic wording like "幫我想幾個方向".
+  building. Never start it from generic wording like "幫我想幾個方向".
 ---
-# spider-web-zh：先定框，再展開，最後交給 grill-me
+# spider-web：先定框，再展開，最後交給 grill-me
 
 ## 0. 只能明確呼叫（鎖）
 
-- 只有使用者明確寫出 spider-web-zh（例如 `$spider-web-zh`、「用 spider-web-zh」、「跑 spider-web-zh」）時才啟動。名稱必須完全相符：只寫 spider-web（沒有 -zh）是另一個 skill，不觸發本版。
-- 「幫我想幾個方向」「發散一下」「腦力激盪」這類說法**不得**啟動。可以問一句「要不要用 spider-web-zh 跑？」，但不得自行開始。
-- 簡單任務（改短一封信、修一個錯字）直接做，不提 spider-web-zh。
-- **唯一例外：回網換枝的重新進入**。使用者明確啟動過的那次流程，在拷問階段觸發 §8 換枝出口時，使用者或 agent 可以重新叫 spider-web-zh，但只能帶著既有的 `handoff.md` 和 `web.md` 進入「換枝模式」，不得開新題目。
+- 只有使用者明確寫出 spider-web（例如 `$spider-web`、「用 spider-web」、「跑 spider-web」）時才啟動。
+- 「幫我想幾個方向」「發散一下」「腦力激盪」這類說法**不得**啟動。可以問一句「要不要用 spider-web 跑？」，但不得自行開始。
+- 簡單任務（改短一封信、修一個錯字）直接做，不提 spider-web。
+- **唯一例外：回網換枝的重新進入**。使用者明確啟動過的那次流程，在拷問階段觸發 §8 換枝出口時，使用者或 agent 可以重新叫 spider-web，但只能帶著既有的 `handoff.md` 和 `web.md` 進入「換枝模式」，不得開新題目。
 - 若環境支援 `agents/openai.yaml`，其中 `allow_implicit_invocation: false` 也是這把鎖的一部分。
 
 ## 1. 流程總覽
 
 ```
-明確呼叫 spider-web-zh
-  → 階段 1：定框拷問（spider-web-zh 自己照 grilling 的問法跑，最多 5 題，只問題目）
+明確呼叫 spider-web
+  → 階段 1：定框拷問（spider-web 自己照 grilling 的問法跑，最多 5 題，只問題目）
   → 階段 2：骨架網（全部列出 → 分群，不刪；上限 30 個節點）
   → 階段 3：使用者圈選要深挖的節點（上限 5 個）
   → 階段 4：深展開（只對圈選節點填 13 欄）
   → 階段 5：使用者選定分枝 → 產出 handoff.md
-  → 階段 6：寫完交接檔後直接啟動 grill-me，只拷問選定路線（spider-web-zh 的交接附加規則同時生效，含一次換枝出口）
+  → 階段 6：寫完交接檔後直接啟動 grill-me，只拷問選定路線（spider-web 的交接附加規則同時生效，含一次換枝出口）
   → 使用者確認共識後才執行
 ```
 
 - 每個階段結束時，用一句話告訴使用者：現在在哪個階段、下一步是什麼。
-- 每次執行的檔案放在工作區的 `spider-web-zh-runs/<YYYYMMDD>-<短題目>/`（不要用 `spider-web-runs/`，那是另一個語言版本的目錄）。階段 1 結束就建立資料夾並開始寫 `web.md`，之後每個階段都更新它；階段 5 再寫 `handoff.md`。
+- 每次執行的檔案放在工作區的 `spider-web-runs/<YYYYMMDD>-<短題目>/`。階段 1 結束就建立資料夾並開始寫 `web.md`，之後每個階段都更新它；階段 5 再寫 `handoff.md`。
 - 成本上限見 §9，任何階段都不得超過。
 
 ## 2. 階段 1：定框拷問
 
-這個階段**不載入** grilling skill，由 spider-web-zh 自己照 grilling 的問法進行：
+這個階段**不載入** grilling skill，由 spider-web 自己照 grilling 的問法進行：
 
 - 一次只問一題，等使用者回覆後才問下一題。
 - 每一題都附上你的建議答案。
@@ -158,7 +157,7 @@ description: >-
 ## 7. 階段 6：交給 grill-me
 
 - 寫完交接檔後，直接啟動 `grill-me` skill，只拷問選定路線，照它的原文進行，不改寫、不省略它的任何規則。grilling 和 grill-me 的檔案一律不修改。
-- 以下是 spider-web-zh 的**交接附加規則**，和 grill-me 同時生效（它們屬於 spider-web-zh，不屬於 grill-me；單獨使用 grilling 或 grill-me 時不適用）：
+- 以下是 spider-web 的**交接附加規則**，和 grill-me 同時生效（它們屬於 spider-web，不屬於 grill-me；單獨使用 grilling 或 grill-me 時不適用）：
   1. 開始前先讀 `handoff.md`。交接檔已經回答的事實不重問；從「未驗證假設」和需要使用者決定的取捨開始。
   2. 每解決一個決策，就更新 `handoff.md` 的「拷問狀態」。
   3. 每一題都檢查是否觸發 §8 的換枝出口。
@@ -170,7 +169,7 @@ description: >-
   - 某個未驗證假設被證明為假，而且它是選定分枝成立的前提；
   - 拷問中出現和選定分枝不相容的硬限制；
   - 使用者表示框定卡的「真正要的結果」改變了。
-- **重新進入**：停止 grill-me，由使用者或 agent 重新叫 spider-web-zh，帶著既有的 `handoff.md`、`web.md` 進入換枝模式（§0 的例外）。
+- **重新進入**：停止 grill-me，由使用者或 agent 重新叫 spider-web，帶著既有的 `handoff.md`、`web.md` 進入換枝模式（§0 的例外）。
 - **換枝模式動作**：
   1. 說明哪個前提被推翻、證據是什麼。
   2. 回到 `web.md`，先看鄰近備案，再看其他已深展開或骨架節點；附建議提出 1 到 2 個替代分枝，由使用者選。提出前先逐條對照框定卡的硬限制，已知不相容的節點不提出。
@@ -178,7 +177,7 @@ description: >-
   4. 更新 `handoff.md`：「回網換枝已用」改成「是」，保留原分枝紀錄，改寫選定分枝相關各段。
   5. 再次直接啟動 grill-me，只拷問新選定路線；已解決而且仍然適用的決策沿用。
 - **上限**：每次流程只能換一次。第二次再被推翻時，停下來回報使用者，建議重新定框或結束，不得自行再換。
-- 如果被推翻的是框定卡本身（結果或硬限制改變），不算換枝，直接建議使用者重新明確呼叫 spider-web-zh，從階段 1 開始。
+- 如果被推翻的是框定卡本身（結果或硬限制改變），不算換枝，直接建議使用者重新明確呼叫 spider-web，從階段 1 開始。
 
 ## 9. 成本上限
 

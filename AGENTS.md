@@ -1,11 +1,11 @@
 # AGENTS.md
 
-This file is for AI agents installing the `spider-web` skill. This repository ships two skill versions with distinct names, and either or both may be installed:
+This file is for AI agents installing the `spider-web` skill. This repository ships two language versions of the same skill. Both use the frontmatter name `spider-web` and the command `$spider-web`. Install exactly one; they cannot be installed at the same time.
 
-- `skills/spider-web/` — English, frontmatter `name: spider-web`
-- `skills/spider-web-zh/` — Traditional Chinese, frontmatter `name: spider-web-zh`
+- `skills/spider-web/` — English
+- `skills/spider-web-zh/` — Traditional Chinese (the folder name in this repository may stay `spider-web-zh`)
 
-Copy the chosen folder(s) into the agent's skills directory, keeping those folder names, so each one has `SKILL.md` at its root.
+Copy exactly one chosen folder into the agent's skills directory. If the loader uses the folder name, name the installed folder `spider-web`. The installed folder must have `SKILL.md` at its root.
 
 ## Install companions
 
@@ -24,7 +24,7 @@ If a skill with that name is already installed, leave it in place. Do not overwr
 
 After installing, confirm that every skill you intended to install is discoverable by the agent's skill loader:
 
-- `spider-web` and/or `spider-web-zh` (as chosen)
+- `spider-web` (exactly one language version)
 - `grill-me`
 - `grilling`
 
