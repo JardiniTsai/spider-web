@@ -6,7 +6,7 @@ description: >-
   task into many materially distinct possibilities before choosing or
   building. Never start it from generic wording like "幫我想幾個方向".
 ---
-# spider-web：先定框，再展開，最後交給 grilling
+# spider-web：先定框，再展開，最後交給 grill-me
 
 ## 0. 只能明確呼叫（鎖）
 
@@ -25,7 +25,7 @@ description: >-
   → 階段 3：使用者圈選要深挖的節點（上限 5 個）
   → 階段 4：深展開（只對圈選節點填 13 欄）
   → 階段 5：使用者選定分枝 → 產出 handoff.md
-  → 階段 6：載入原版 grilling 拷問選定分枝（spider-web 的交接附加規則同時生效，含一次換枝出口）
+  → 階段 6：寫完交接檔後直接啟動 grill-me，只拷問選定路線（spider-web 的交接附加規則同時生效，含一次換枝出口）
   → 使用者確認共識後才執行
 ```
 
@@ -152,10 +152,10 @@ description: >-
 
 - `web.md` 內容：框定卡、動詞改寫、完整骨架網、分群、圈選紀錄、深展開內容。
 
-## 7. 階段 6：交給原版 grilling
+## 7. 階段 6：交給 grill-me
 
-- 載入 `grilling` skill，照它的原文進行，不改寫、不省略它的任何規則。grilling 和 grill-me 的檔案一律不修改。
-- 以下是 spider-web 的**交接附加規則**，和 grilling 同時生效（它們屬於 spider-web，不屬於 grilling；單獨使用 grilling 或 grill-me 時不適用）：
+- 寫完交接檔後，直接啟動 `grill-me` skill，只拷問選定路線，照它的原文進行，不改寫、不省略它的任何規則。grilling 和 grill-me 的檔案一律不修改。
+- 以下是 spider-web 的**交接附加規則**，和 grill-me 同時生效（它們屬於 spider-web，不屬於 grill-me；單獨使用 grilling 或 grill-me 時不適用）：
   1. 開始前先讀 `handoff.md`。交接檔已經回答的事實不重問；從「未驗證假設」和需要使用者決定的取捨開始。
   2. 每解決一個決策，就更新 `handoff.md` 的「拷問狀態」。
   3. 每一題都檢查是否觸發 §8 的換枝出口。
@@ -167,13 +167,13 @@ description: >-
   - 某個未驗證假設被證明為假，而且它是選定分枝成立的前提；
   - 拷問中出現和選定分枝不相容的硬限制；
   - 使用者表示框定卡的「真正要的結果」改變了。
-- **重新進入**：停止 grilling，由使用者或 agent 重新叫 spider-web，帶著既有的 `handoff.md`、`web.md` 進入換枝模式（§0 的例外）。
+- **重新進入**：停止 grill-me，由使用者或 agent 重新叫 spider-web，帶著既有的 `handoff.md`、`web.md` 進入換枝模式（§0 的例外）。
 - **換枝模式動作**：
   1. 說明哪個前提被推翻、證據是什麼。
   2. 回到 `web.md`，先看鄰近備案，再看其他已深展開或骨架節點；附建議提出 1 到 2 個替代分枝，由使用者選。提出前先逐條對照框定卡的硬限制，已知不相容的節點不提出。
   3. 新選的節點如果還沒深展開，就補做 13 欄，計入深展開 5 個的上限；上限已滿時，要請使用者先放棄一個已深展開的節點。
   4. 更新 `handoff.md`：「回網換枝已用」改成「是」，保留原分枝紀錄，改寫選定分枝相關各段。
-  5. 再次載入原版 grilling 拷問新分枝；已解決而且仍然適用的決策沿用。
+  5. 再次直接啟動 grill-me，只拷問新選定路線；已解決而且仍然適用的決策沿用。
 - **上限**：每次流程只能換一次。第二次再被推翻時，停下來回報使用者，建議重新定框或結束，不得自行再換。
 - 如果被推翻的是框定卡本身（結果或硬限制改變），不算換枝，直接建議使用者重新明確呼叫 spider-web，從階段 1 開始。
 
