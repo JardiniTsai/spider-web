@@ -1,6 +1,6 @@
 # spider-web
 
-**English summary.** spider-web is an agent skill that starts only when the user explicitly names it. It first frames a vague idea or task, then expands it into a web of materially distinct possibilities, and only afterwards starts `grill-me` to interrogate only the chosen path. No work is done until the user confirms a shared understanding. It is not a short-list generator. Install and use it together with `grill-me`.
+**English summary.** spider-web is an agent skill that starts only when the user explicitly names it. It first frames a vague idea or task, then expands it into a web of materially distinct possibilities, and only afterwards starts `grill-me` to interrogate only the chosen path. No work is done until the user confirms a shared understanding. It is not a short-list generator. Install and use it together with both `grill-me` and `grilling`: `grill-me` is a thin wrapper that starts the `grilling` skill. See [Matt Pocock's skills repo](https://github.com/mattpocock/skills) ([grill-me](https://github.com/mattpocock/skills/tree/main/skills/productivity/grill-me), [grilling](https://github.com/mattpocock/skills/tree/main/skills/productivity/grilling)).
 
 ## 用途
 
@@ -8,7 +8,7 @@ spider-web 是一個只能被明確呼叫的探索 skill。它先把題目框對
 
 它不是用來產出短清單的工具。它的工作是攤開可能性、讓不同節點都看得見，並且在網夠廣之前不收斂。使用者選定分枝、完成拷問並確認共識後，才可以執行。
 
-**必須搭配 `grill-me` skill 使用。** 本套件不包含 `grill-me`。階段 1 由 spider-web 自己照 `grilling` 的問法進行（不載入該 skill）；階段 6 在寫完交接檔後直接啟動 `grill-me`，只拷問選定路線，並同時套用 spider-web 的交接附加規則（含一次換枝出口）。請在同一套 agent 環境裡另行安裝名稱為 `grill-me` 的 skill。這裡只寫技能名稱，不附外部連結。
+**必須搭配 `grill-me` 與 `grilling` skill 使用。** 本套件不包含這兩者。`grill-me` 是啟動 `grilling` skill 的薄包裝，因此兩者都要安裝。階段 1 由 spider-web 自己照 `grilling` 的問法進行（不載入該 skill）；階段 6 在寫完交接檔後直接啟動 `grill-me`，只拷問選定路線，並同時套用 spider-web 的交接附加規則（含一次換枝出口）。請在同一套 agent 環境裡另行安裝名稱為 `grill-me` 與 `grilling` 的 skill。可參考 [Matt Pocock 的 skills 倉庫](https://github.com/mattpocock/skills)（[grill-me](https://github.com/mattpocock/skills/tree/main/skills/productivity/grill-me)、[grilling](https://github.com/mattpocock/skills/tree/main/skills/productivity/grilling)）。
 
 ## 六個階段
 
@@ -29,7 +29,7 @@ spider-web 是一個只能被明確呼叫的探索 skill。它先把題目框對
 
 ## 安裝
 
-1. 先在同一個 agent 環境安裝 `grill-me` skill（資料夾或技能名稱需為 `grill-me`）。
+1. 先在同一個 agent 環境安裝 `grill-me` 與 `grilling` skill（資料夾或技能名稱需分別為 `grill-me`、`grilling`）。
 2. 把本資料夾複製到該 agent 的 skills 目錄，並保持資料夾名稱為 `spider-web`。根目錄必須有 `SKILL.md`。
 3. 若環境會讀取 `agents/openai.yaml`，其中的 `allow_implicit_invocation: false` 會關閉隱式呼叫。即使環境不讀這個檔，`SKILL.md` 的 frontmatter 與內文仍規定：只有使用者明確寫出 spider-web 才啟動。
 
