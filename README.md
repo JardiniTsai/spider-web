@@ -1,6 +1,6 @@
 # spider-web
 
-**English summary.** spider-web is an agent skill that starts only when the user explicitly names it. It first frames a vague idea or task, then expands it into a web of materially distinct possibilities, and only afterwards starts `grill-me` to interrogate only the chosen path. No work is done until the user confirms a shared understanding. It is not a short-list generator. Install and use it together with both `grill-me` and `grilling`: `grill-me` is a thin wrapper that starts the `grilling` skill. See [Matt Pocock's skills repo](https://github.com/mattpocock/skills) ([grill-me](https://github.com/mattpocock/skills/tree/main/skills/productivity/grill-me), [grilling](https://github.com/mattpocock/skills/tree/main/skills/productivity/grilling)).
+**English summary.** spider-web is an agent skill that starts only when the user explicitly names it. It first frames a vague idea or task, then expands it into a web of materially distinct possibilities, and only afterwards starts `grill-me` to interrogate only the chosen path. No work is done until the user confirms a shared understanding. It is not a short-list generator. Install and use it together with both `grill-me` and `grilling`: `grill-me` is a thin wrapper that starts the `grilling` skill. See [Matt Pocock's skills repo](https://github.com/mattpocock/skills) ([grill-me](https://github.com/mattpocock/skills/tree/main/skills/productivity/grill-me), [grilling](https://github.com/mattpocock/skills/tree/main/skills/productivity/grilling)). Agents installing this skill should follow [AGENTS.md](AGENTS.md).
 
 ## 用途
 
@@ -9,6 +9,8 @@ spider-web 是一個只能被明確呼叫的探索 skill。它先把題目框對
 它不是用來產出短清單的工具。它的工作是攤開可能性、讓不同節點都看得見，並且在網夠廣之前不收斂。使用者選定分枝、完成拷問並確認共識後，才可以執行。
 
 **必須搭配 `grill-me` 與 `grilling` skill 使用。** 本套件不包含這兩者。`grill-me` 是啟動 `grilling` skill 的薄包裝，因此兩者都要安裝。階段 1 由 spider-web 自己照 `grilling` 的問法進行（不載入該 skill）；階段 6 在寫完交接檔後直接啟動 `grill-me`，只拷問選定路線，並同時套用 spider-web 的交接附加規則（含一次換枝出口）。請在同一套 agent 環境裡另行安裝名稱為 `grill-me` 與 `grilling` 的 skill。可參考 [Matt Pocock 的 skills 倉庫](https://github.com/mattpocock/skills)（[grill-me](https://github.com/mattpocock/skills/tree/main/skills/productivity/grill-me)、[grilling](https://github.com/mattpocock/skills/tree/main/skills/productivity/grilling)）。
+
+安裝本 skill 的 agent 請依 [AGENTS.md](AGENTS.md) 處理依賴與驗證。
 
 ## 六個階段
 
