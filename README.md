@@ -4,11 +4,7 @@
 
 ## Source / Credits
 
-spider-web is inspired by Felix Rieseberg's article [How to be more ambitious: a tutorial for humans with models](https://felixrieseberg.com/how-to-be-more-ambitious-a-tutorial-for-humans-with-models/) (13 October 2026). This skill does not speak for the author, and nothing here implies that Felix Rieseberg endorses it.
-
-From the article, this skill draws on: the four types of ambition (Speed, Altitude, Depth, and Range); asking for the goal beyond the goal (the "and then?" ladder); unreasonable goals; external validation; and four questions for going one level deeper. The "nouns into verbs" move, which this skill requires when building the skeleton web, is credited in the article to Tom Kelley and Jonathan Littman's *The Art of Innovation*.
-
-This skill adds its own design, which is not the article's method: the frame card, node limits, the 13 columns, the grill-me stage, branch switching, and the six-stage handoff flow.
+The core ideas in spider-web are drawn from Felix Rieseberg's article [How to be more ambitious: a tutorial for humans with models](https://felixrieseberg.com/how-to-be-more-ambitious-a-tutorial-for-humans-with-models/) (published 13 October 2026): the four types of ambition (Speed, Altitude, Depth, and Range); the goal beyond the goal; unreasonable goals; external validation; and four questions for going one level deeper. The "nouns into verbs" technique, as cited in the article, comes from Tom Kelley and Jonathan Littman's *The Art of Innovation*. The six stages, node limits, and handoff flow are this skill's own design; they are not the author's method, and nothing here implies that Felix Rieseberg endorses this skill.
 
 ## What it is
 

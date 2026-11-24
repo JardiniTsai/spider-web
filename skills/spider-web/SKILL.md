@@ -54,9 +54,10 @@ Framing-only rules:
   4. **How success is judged**: observable metrics or judgment criteria, and who judges.
 - **The "and then?" ladder**:
   - Start from the user's original wording and keep asking "After this is done, and then?", writing a higher outcome at each step up.
-  - After each step, judge whether it is deliverable: within the hard constraints, can AI plus existing resources produce a result in a reasonable time?
+  - After each step, judge whether it is deliverable: within the hard constraints, can AI plus existing resources, or tools / permissions / data that can reasonably be added, produce a result in a reasonable time? List what needs to be added under "required tools / permissions / environment"; do not step back a layer solely because of that.
   - At the first layer that is "not doable, or too vague" (for example "help me make a million"), **step back one layer**. That layer is "the real desired outcome".
   - You draft the ladder and recommend where to stop; the user decides.
+  - For creative topics (a work's style, copy tone, and the like), climbing further has limited value: climb one layer only, or skip the ladder with the user's agreement and record "real desired outcome = the original topic".
 - **Produce a "frame card"**, at most 10 lines:
   ```
   Topic (original wording):
@@ -71,8 +72,8 @@ Framing-only rules:
 
 ## 3. Stage 2: Skeleton web
 
-- Expand breadth-first within the frame card. Axes include speed, altitude, depth, range, demand, channels, monetization, retention, and lifecycle, plus any other axes the topic needs.
-- **Nouns into verbs (required)**: before expanding, rewrite product nouns in the topic as the job they must do (for example, "homepage" → "make a stranger stop and get curious within five seconds"). Ask "Which industries in the world are best at this?", find at least 3 different industries, borrow one technique from each, and make each a node. Show this verb rewrite at the start of the skeleton web.
+- Expand breadth-first within the frame card. Axes include altitude, depth, range (cross-domain), speed (doing the same work faster, lowest priority), demand, channels, monetization, retention, and lifecycle, plus any other axes the topic needs.
+- **Nouns into verbs (required)**: before expanding, rewrite product nouns in the topic as the job they must do (for example, "homepage" → "make a stranger stop and get curious within five seconds"). Ask "Which industries in the world are best at this?", find at least 3 different industries, borrow one technique from each, and make each a node. You may also ask "If this absolutely had to succeed, which kinds of specialists would you assemble?" to find industries, and include at least one adversarial role (for example a short-seller researcher or a forensic accountant). Borrow that field's actual methods, not an imitation of its tone. Show this verb rewrite at the start of the skeleton web.
 - **Unreasonable goals (optional)**: you may do this once for a group, set the success metric to an extreme value, and ask "If this were definitely achievable, what would be completely different about the approach?", producing new nodes. Do not write extreme goals into the frame card's success criteria, and do not treat them as a promise.
 - **Each node has only three fields**:
 
@@ -104,7 +105,8 @@ Framing-only rules:
   - For non-product topics (internal process, personal task, one-off project, and the like) or when a node itself does not apply, you may write `Not applicable: <one-sentence reason>`.
   - **These 5 columns must not be marked not applicable**: higher-level outcome, expert methods, primary data, external validation, and risks. Every topic must have substantive content in them.
   - In a product topic, if more than half of the four columns acquisition, growth loop, business model, and retention are marked not applicable, note at the end of the node "this node may not be a product opportunity".
-- **Fill expert methods with the four depth questions**: What would a leading expert in this field do that I have not thought of? What primary sources would they look at? What methods and tools would they use? How would they show that it works?
+- **Fill expert methods with the four depth questions**: What would a leading expert in this field do that I have not thought of? What raw, still-undigested material would they start from? What methods and tools would they use? Other than you and me, what can show that the result is right?
+- **Challenge existing beliefs**: If the frame card or the user's wording contains a causal assumption (for example "churn is an onboarding problem"), and primary data can be checked, try to reproduce or overturn it with that data and put the result in the "Primary data" column; if you cannot check it, list it as an unverified assumption.
 - **Unreasonable-goal stress test**: do this at least once for every circled node, as a short section "Approach under an extreme goal".
 - **Real-world completeness**: if a node depends on a real-world mechanism, list the physical preconditions, the people or organizations that must be handed off to, and time lags. Sample data, simulations, fake integrations, or demos may test an interface or an assumption, but if they bypass the product's actual real-world mechanism, you must not say it is "already live".
 - At the end you may recommend a node or a combination, with reasons.

@@ -4,11 +4,7 @@
 
 ## 出處
 
-spider-web 的靈感來自 Felix Rieseberg 的文章〈[How to be more ambitious: a tutorial for humans with models](https://felixrieseberg.com/how-to-be-more-ambitious-a-tutorial-for-humans-with-models/)〉（2026 年 10 月 13 日）。本 skill 不代表作者發言，也沒有暗示 Felix Rieseberg 背書。
-
-取自該文的概念包括：四種企圖心（Speed、Altitude、Depth、Range）、追問「目標之後的目標」（「然後呢」階梯）、不合理目標、外部驗證，以及再往下一層的四個問題。文中的「名詞換動詞」，作者註明出自 Tom Kelley 與 Jonathan Littman 的《The Art of Innovation》；本 skill 在骨架網階段把這一步列為必做。
-
-以下是本 skill 自己加的設計，不是原文的方法：框定卡、節點上限、13 欄、grill-me 階段、換枝出口，以及六個階段與交接流程。
+spider-web 的核心概念取自 Felix Rieseberg 的文章〈[How to be more ambitious: a tutorial for humans with models](https://felixrieseberg.com/how-to-be-more-ambitious-a-tutorial-for-humans-with-models/)〉（發表於 2026 年 10 月 13 日）：文中的四種企圖心（Speed、Altitude、Depth、Range）、「目標之後的目標」、不合理目標、外部驗證，以及加深任務的四個問題。「名詞換動詞」是該文引用自 Tom Kelley 與 Jonathan Littman《The Art of Innovation》的技巧。六個階段、節點上限與交接流程是本 skill 自己加的設計，不是原作者的方法，也不代表原作者的說法；沒有暗示 Felix Rieseberg 背書。
 
 ## 用途
 
