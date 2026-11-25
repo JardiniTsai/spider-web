@@ -9,7 +9,7 @@ Copy exactly one chosen folder into the agent's skills directory. If the loader 
 
 ## Install companions
 
-Whichever language version you install, also install `grill-me` and `grilling` from [mattpocock/skills](https://github.com/mattpocock/skills). Stage 1 follows `grilling`'s questioning style without loading that skill; stage 6 starts `grill-me` (which starts `grilling`) and interrogates only the chosen route.
+Whichever language version you install, also install `grill-me` and `grilling` from [mattpocock/skills](https://github.com/mattpocock/skills). The skill runs seven stages (0–6). Stage 0 gathers facts when something is checkable and does not use those companion skills. Stage 1 follows `grilling`'s questioning style without loading that skill; stage 6 starts `grill-me` (which starts `grilling`) and interrogates only the chosen route.
 
 Install them from:
 

@@ -4,7 +4,7 @@
 
 ## 出處
 
-spider-web 的核心概念取自 Felix Rieseberg 的文章〈[How to be more ambitious: A tutorial for humans with models](https://felixrieseberg.com/how-to-be-more-ambitious-a-tutorial-for-humans-with-models/)〉（發表於 2026 年 10 月 13 日）：文中的四種企圖心（Speed、Altitude、Depth、Range）、「目標之後的目標」、不合理目標、外部驗證、加深任務的四個問題、組隊與對抗角色（借做法、不扮角色），以及用原始資料挑戰既有認知。把名詞換成動詞（原文為 replace the nouns with verbs）是該文引用自 Tom Kelley 與 Jonathan Littman《The Art of Innovation》的技巧。六個階段、節點上限與交接流程是本 skill 自己加的設計，不是原作者的方法，也不代表原作者的說法；沒有暗示 Felix Rieseberg 背書。
+spider-web 的核心概念取自 Felix Rieseberg 的文章〈[How to be more ambitious: A tutorial for humans with models](https://felixrieseberg.com/how-to-be-more-ambitious-a-tutorial-for-humans-with-models/)〉（發表於 2026 年 10 月 13 日）：文中的四種企圖心（Speed、Altitude、Depth、Range）、「目標之後的目標」、不合理目標、外部驗證、加深任務的四個問題、組隊與對抗角色（借做法、不扮角色），以及用原始資料挑戰既有認知。把名詞換成動詞（原文為 replace the nouns with verbs）是該文引用自 Tom Kelley 與 Jonathan Littman《The Art of Innovation》的技巧。七個階段（含階段 0：蒐集事實；這是本 skill 自己加的，不是來自該文）、節點上限與交接流程是本 skill 自己加的設計，不是原作者的方法，也不代表原作者的說法；沒有暗示 Felix Rieseberg 背書。
 
 ## 用途
 
@@ -19,13 +19,14 @@ spider-web 是一個只能被明確呼叫的探索 skill。它先把題目框對
 
 安裝本 skill 的 agent 請依 [AGENTS.md](AGENTS.md) 處理依賴與驗證。
 
-## 六個階段
+## 七個階段
 
 以下流程取自 skill 的 `SKILL.md`，未另行改寫。繁中版：
 
 ```
 明確呼叫 spider-web
-  → 階段 1：定框拷問（spider-web 自己照 grilling 的問法跑，最多 5 題，只問題目）
+  → 階段 0：蒐集事實（若使用者提供網址、產品、品牌或專案名稱，先自動蒐集再定框；沒有可查的就跳過）
+  → 階段 1：定框拷問（spider-web 自己照 grilling 的問法跑，最多 5 題，只問題目；已查到的已確認事實不再問）
   → 階段 2：骨架網（全部列出 → 分群，不刪；上限 30 個節點）
   → 階段 3：使用者圈選要深挖的節點（上限 5 個）
   → 階段 4：深展開（只對圈選節點填 13 欄）
@@ -34,7 +35,7 @@ spider-web 是一個只能被明確呼叫的探索 skill。它先把題目框對
   → 使用者確認共識後才執行
 ```
 
-每個階段結束時，agent 會用一句話說明現在在哪個階段、下一步是什麼。每次執行的檔案放在工作區的 `spider-web-runs/<YYYYMMDD>-<短題目>/`（兩個語言版本都用同一條規則）。階段 1 結束就建立資料夾並開始寫 `web.md`，之後每個階段都更新它；階段 5 再寫 `handoff.md`。
+每個階段結束時，agent 會用一句話說明現在在哪個階段、下一步是什麼。每次執行的檔案放在工作區的 `spider-web-runs/<YYYYMMDD>-<短題目>/`（兩個語言版本都用同一條規則）。一進入流程（階段 0；若跳過則階段 1）就建立資料夾並開始寫 `web.md`，階段 0 的事實寫入「事實」區，之後每個階段都更新它；階段 5 再寫 `handoff.md`。
 
 ## 安裝
 

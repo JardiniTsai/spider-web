@@ -4,7 +4,7 @@
 
 ## Source / Credits
 
-The core ideas in spider-web are drawn from Felix Rieseberg's article [How to be more ambitious: A tutorial for humans with models](https://felixrieseberg.com/how-to-be-more-ambitious-a-tutorial-for-humans-with-models/) (published 13 October 2026): the four types of ambition (Speed, Altitude, Depth, and Range); the goal beyond the goal; unreasonable goals; external validation; four questions for going one level deeper; assembling a specialist team and including an adversarial role (borrow the practice, not the voice); and challenging existing beliefs with raw data. As cited in the article, "replace the nouns with verbs" comes from Tom Kelley and Jonathan Littman's *The Art of Innovation*. The six stages, node limits, and handoff flow are this skill's own design; they are not the author's method, and nothing here implies that Felix Rieseberg endorses this skill.
+The core ideas in spider-web are drawn from Felix Rieseberg's article [How to be more ambitious: A tutorial for humans with models](https://felixrieseberg.com/how-to-be-more-ambitious-a-tutorial-for-humans-with-models/) (published 13 October 2026): the four types of ambition (Speed, Altitude, Depth, and Range); the goal beyond the goal; unreasonable goals; external validation; four questions for going one level deeper; assembling a specialist team and including an adversarial role (borrow the practice, not the voice); and challenging existing beliefs with raw data. As cited in the article, "replace the nouns with verbs" comes from Tom Kelley and Jonathan Littman's *The Art of Innovation*. The seven stages (including Stage 0: Gather facts, which is this skill's own addition and does not come from the article), the node limits, and the handoff flow are this skill's own design; they are not the author's method, and nothing here implies that Felix Rieseberg endorses this skill.
 
 ## What it is
 
@@ -17,13 +17,14 @@ This repository ships two language versions of the same skill. Both use the skil
 
 **Use it together with both `grill-me` and `grilling`.** This package does not include them. `grill-me` is a thin wrapper that starts the `grilling` skill, so both must be installed. In stage 1, this skill itself follows `grilling`'s questioning style (it does not load that skill); in stage 6, after writing the handoff document, it starts `grill-me` and interrogates only the chosen route, with this skill's handoff add-on rules also in effect (including one branch-switch exit). Install skills named `grill-me` and `grilling` in the same agent environment. See [Matt Pocock's skills repo](https://github.com/mattpocock/skills) ([grill-me](https://github.com/mattpocock/skills/tree/main/skills/productivity/grill-me), [grilling](https://github.com/mattpocock/skills/tree/main/skills/productivity/grilling)). Agents installing this skill should follow [AGENTS.md](AGENTS.md).
 
-## Six stages
+## Seven stages
 
 The following flow is taken from the skill's `SKILL.md` and is not rewritten here. The English version:
 
 ```
 Explicitly invoke spider-web
-  → Stage 1: Framing interrogation (spider-web itself uses grilling's questioning style, at most 5 questions, about the problem only)
+  → Stage 0: Gather facts (if the user gave a URL, product, brand, or project name, gather facts first, then frame; skip if nothing is checkable)
+  → Stage 1: Framing interrogation (spider-web itself uses grilling's questioning style, at most 5 questions, about the problem only; do not re-ask confirmed facts already found)
   → Stage 2: Skeleton web (list everything → group, do not delete; cap 30 nodes)
   → Stage 3: User circles nodes to expand (cap 5)
   → Stage 4: Deep expansion (fill 13 columns only for circled nodes)
@@ -32,7 +33,7 @@ Explicitly invoke spider-web
   → Execute only after the user confirms a shared understanding
 ```
 
-At the end of each stage, the agent should say in one sentence which stage it is in and what comes next. Files for each run go in `spider-web-runs/<YYYYMMDD>-<short-title>/` under the working directory (the same rule for either language version). Create the folder and start `web.md` at the end of Stage 1, update it at every later stage, and write `handoff.md` in Stage 5.
+At the end of each stage, the agent should say in one sentence which stage it is in and what comes next. Files for each run go in `spider-web-runs/<YYYYMMDD>-<short-title>/` under the working directory (the same rule for either language version). Create the folder and start `web.md` as soon as the run begins (Stage 0, or Stage 1 if Stage 0 is skipped); write Stage 0 facts into the Facts section, update the file at every later stage, and write `handoff.md` in Stage 5.
 
 ## Install
 

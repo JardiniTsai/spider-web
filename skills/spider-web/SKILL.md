@@ -7,21 +7,22 @@ description: >-
   building. Never start it from generic wording like "help me think of a
   few directions" or "幫我想幾個方向".
 ---
-# spider-web: frame first, expand, then hand off to grill-me
+# spider-web: gather facts, then frame, expand, and hand off to grill-me
 
 ## 0. Explicit invocation only (the lock)
 
 - Start only when the user explicitly writes spider-web (for example `$spider-web`, "use spider web", or "run spider-web").
 - Wording such as "help me think of a few directions", "let's diverge", or "brainstorm" **must not** start it. You may ask "Want to run this with spider-web?", but you must not start on your own.
 - For simple tasks (shortening a letter, fixing a typo), just do the work. Do not mention spider-web.
-- **Sole exception: re-entry for a branch switch.** If the user has already explicitly started this run, and the interrogation stage hits the §8 branch-switch exit, the user or the agent may call spider-web again — but only in "branch-switch mode", carrying the existing `handoff.md` and `web.md`. Do not open a new topic.
+- **Sole exception: re-entry for a branch switch.** If the user has already explicitly started this run, and the interrogation stage hits the §9 branch-switch exit, the user or the agent may call spider-web again — but only in "branch-switch mode", carrying the existing `handoff.md` and `web.md`. Do not open a new topic.
 - If the environment honors `agents/openai.yaml`, its `allow_implicit_invocation: false` is also part of this lock.
 
 ## 1. Flow overview
 
 ```
 Explicitly invoke spider-web
-  → Stage 1: Framing interrogation (spider-web itself uses grilling's questioning style, at most 5 questions, about the problem only)
+  → Stage 0: Gather facts (if the user gave a URL, product, brand, or project name, gather facts first, then frame; skip if nothing is checkable)
+  → Stage 1: Framing interrogation (spider-web itself uses grilling's questioning style, at most 5 questions, about the problem only; do not re-ask confirmed facts already found)
   → Stage 2: Skeleton web (list everything → group, do not delete; cap 30 nodes)
   → Stage 3: User circles nodes to expand (cap 5)
   → Stage 4: Deep expansion (fill 13 columns only for circled nodes)
@@ -31,16 +32,33 @@ Explicitly invoke spider-web
 ```
 
 - At the end of each stage, tell the user in one sentence which stage you are in and what comes next.
-- Put files for each run in `spider-web-runs/<YYYYMMDD>-<short-title>/` under the working directory. Create the folder and start writing `web.md` at the end of Stage 1, then update it at every later stage; write `handoff.md` in Stage 5.
-- Cost caps are in §9. No stage may exceed them.
+- Put files for each run in `spider-web-runs/<YYYYMMDD>-<short-title>/` under the working directory. Create the folder and start writing `web.md` as soon as the run begins (Stage 0, or Stage 1 if Stage 0 is skipped). Write Stage 0 facts into the "Facts" section, update the file at every later stage, and write `handoff.md` in Stage 5.
+- Cost caps are in §10. No stage may exceed them.
 
-## 2. Stage 1: Framing interrogation
+## 2. Stage 0: Gather facts
+
+If the user gave a URL, a product, a brand, or a project name, automatically gather facts first, then go to Stage 1 framing. If nothing is checkable, skip this stage and go straight to Stage 1.
+
+Adjust what you collect to the type of topic. Typical items include:
+
+- Page content
+- Pricing and plans
+- Reviews and social numbers
+- Main competitors
+- The page's technical state (is it JS-rendered? Are SEO fields filled in?)
+
+Label every fact **confirmed** or **inferred**, and give a source. Inferred facts must not be used directly as premises. If a page is JS-rendered, verify it from the actual rendered result or a data API; do not treat server-side rendering (SSR) placeholder text as the real state. Lesson: SSR placeholder text saying "out of stock" (「缺貨中」) has been misread as the product actually being out of stock.
+
+Write the facts gathered in this stage into the "Facts" section of `web.md`, and carry them into `handoff.md` in Stage 5.
+
+## 3. Stage 1: Framing interrogation
 
 **Do not load** the grilling skill in this stage. spider-web itself follows grilling's questioning style:
 
 - Ask only one question at a time, and wait for the user's reply before asking the next.
 - Attach your recommended answer to every question.
 - Look up facts you can find from the environment, files, or tools; do not ask the user for those. Only decisions go to the user.
+- Do not re-ask facts already found in Stage 0 and labeled "confirmed". Ask only what only the user knows (for example budget, cost, or capacity). The limit is still at most 5 questions.
 - Do not start implementing any solution before a shared understanding is confirmed.
 
 Framing-only rules:
@@ -70,7 +88,7 @@ Framing-only rules:
   ```
 - **Gate**: enter Stage 2 only after the user replies "Frame OK" or after their corrections.
 
-## 3. Stage 2: Skeleton web
+## 4. Stage 2: Skeleton web
 
 - Expand breadth-first within the frame card. Axes include altitude, depth, range (cross-domain), speed (doing the same work faster, lowest priority), demand, channels, monetization, retention, and lifecycle, plus any other axes the topic needs.
 - **Nouns into verbs (required)**: before expanding, rewrite product nouns in the topic as the job they must do (for example, "homepage" → "make a stranger stop and get curious within five seconds"). Ask "Which industries in the world are best at this?", find at least 3 different industries, borrow one technique from each, and make each a node. You may also ask "If this absolutely had to succeed, which kinds of specialists would you assemble?" to find industries, and include at least one adversarial role (for example a short-seller researcher or a forensic accountant). Borrow that field's actual methods, not an imitation of its tone. Show this verb rewrite at the start of the skeleton web.
@@ -91,13 +109,13 @@ Framing-only rules:
   3. Mark obviously duplicate nodes, but still keep them.
 - In this stage, **do not recommend and do not rank**.
 
-## 4. Stage 3: User circles nodes
+## 5. Stage 3: User circles nodes
 
 - Ask the user to circle the nodes to expand, at most 5; a combination counts as 1. To circle more, they must first drop others.
 - You may offer **one** recommendation with reasons (for example "I'd circle N3, N7, and N12"). The whole web is already visible, so this is not early convergence.
 - The user may ask for one more skeleton round (only 1 round). After it, the total number of nodes still must not exceed 30.
 
-## 5. Stage 4: Deep expansion
+## 6. Stage 4: Deep expansion
 
 - Fill all 13 columns only for circled nodes: higher-level outcome, demand evidence, first users, repeatable acquisition channel, product-led growth loop, business model, retention path, expert methods, primary data, external validation, cross-domain techniques, risks, and required tools / permissions / environment.
 - Look up facts, tools, and feasibility yourself, at most 3 queries per node; if you cannot find something, mark it "Unverified" and later put it in the unverified assumptions in handoff.md.
@@ -111,7 +129,7 @@ Framing-only rules:
 - **Real-world completeness**: if a node depends on a real-world mechanism, list the physical preconditions, the people or organizations that must be handed off to, and time lags. Sample data, simulations, fake integrations, or demos may test an interface or an assumption, but if they bypass the product's actual real-world mechanism, you must not say it is "already live".
 - At the end you may recommend a node or a combination, with reasons.
 
-## 6. Stage 5: Choose a branch and write the handoff
+## 7. Stage 5: Choose a branch and write the handoff
 
 - After the user chooses a branch (one node or a combination) and confirms a shared understanding, write `handoff.md` in the same folder, in this format:
 
@@ -121,6 +139,9 @@ Framing-only rules:
 - web.md: <path>
 - Chosen branch: <node numbers and names; list each node if it is a combination>
 - Why it was chosen (the user's wording or confirmation):
+
+## Facts
+(Copy the Facts section from `web.md`; label each item confirmed or inferred, with a source. Inferred facts must not be used directly as premises. If Stage 0 was skipped, write "none" and give a reason.)
 
 ## Frame card
 (Paste the Stage 1 frame card as-is)
@@ -153,18 +174,18 @@ Framing-only rules:
 - Open decisions:
 ```
 
-- Contents of `web.md`: the frame card, the verb rewrite, the full skeleton web, grouping, the circling record, and the deep-expansion content.
+- Contents of `web.md`: the Facts section (from Stage 0, if any), the frame card, the verb rewrite, the full skeleton web, grouping, the circling record, and the deep-expansion content.
 
-## 7. Stage 6: Hand off to grill-me
+## 8. Stage 6: Hand off to grill-me
 
 - After writing the handoff document, start the `grill-me` skill directly and interrogate only the chosen route, following its text as written, without rewriting or omitting any of its rules. Do not modify the grilling or grill-me files at all.
 - The following are spider-web's **handoff add-on rules**. They apply at the same time as grill-me (they belong to spider-web, not to grill-me; they do not apply when grilling or grill-me is used on its own):
   1. Read `handoff.md` before starting. Do not re-ask facts the handoff already answered; start from "unverified assumptions" and trade-offs that need a user decision.
   2. Each time a decision is settled, update the "Interrogation status" in `handoff.md`.
-  3. On every question, check whether the §8 branch-switch exit has been triggered.
+  3. On every question, check whether the §9 branch-switch exit has been triggered.
 - Execute only after the user confirms a shared understanding. When executing, follow the environment's existing assignment rules (for example, hand programming work to an existing engineering process or designated tool).
 
-## 8. Interrogation exit: return to the web and switch branches
+## 9. Interrogation exit: return to the web and switch branches
 
 - **Triggers** (any one):
   - An unverified assumption is shown to be false, and it is a premise the chosen branch depends on;
@@ -178,9 +199,9 @@ Framing-only rules:
   4. Update `handoff.md`: set "Branch-switch used" to "yes", keep a record of the original branch, and rewrite the sections about the chosen branch.
   5. Start grill-me again directly and interrogate only the newly chosen route; reuse settled decisions that still apply.
 - **Cap**: only one switch per run. If a premise is overturned a second time, stop, report to the user, and suggest reframing from scratch or ending. Do not switch again on your own.
-- If what was overturned is the frame card itself (the outcome or hard constraints changed), that is not a branch switch. Directly suggest that the user explicitly invoke spider-web again, starting from Stage 1.
+- If what was overturned is the frame card itself (the outcome or hard constraints changed), that is not a branch switch. Directly suggest that the user explicitly invoke spider-web again, starting from Stage 0.
 
-## 9. Cost caps
+## 10. Cost caps
 
 | Item | Cap | Notes |
 |---|---|---|
@@ -190,9 +211,9 @@ Framing-only rules:
 | Deep-expanded nodes | 5 | A combination counts as 1; a branch-switch fill also counts |
 | Skeleton demand checks | At most 1 quick lookup per node | Leave deep research for Stage 4 |
 | Deep-expansion research | At most 3 queries per node | Mark "Unverified" if not found |
-| Return-to-web branch switch | 1 | See §8 |
+| Return-to-web branch switch | 1 | See §9 |
 
-## 10. If you find a defect in the skill: propose only, do not edit it yourself
+## 11. If you find a defect in the skill: propose only, do not edit it yourself
 
 1. If you find a missing axis, early convergence, or any other defect in the skill, **do not modify any skill file** (including this one, grilling, and grill-me).
 2. Attach a "proposed fix" at the end of that turn's reply: the problem, a minimal fix (as a diff), the scope of impact, and whether a rerun is needed.
@@ -200,10 +221,10 @@ Framing-only rules:
 4. Edit the skill only after the user explicitly approves the proposal, then say what changed. Whether to rerun from the original prompt is the user's decision; the default is not to rerun.
 5. Do not write project-specific facts into this general-purpose skill; when needed, the user should provide project context before invoking it.
 
-## 11. Bottom line
+## 12. Bottom line
 
 - Do not start implicitly (except for the §0 branch-switch re-entry).
-- Do not exceed the §9 caps.
+- Do not exceed the §10 caps.
 - In the skeleton-web stage, do not rank, merge, or recommend; grouping must not hide or delete nodes.
 - Do not dump a large questionnaire on the user, and do not ask the user to imagine every possibility themselves.
 - Do not ask the user for facts you can look up.
