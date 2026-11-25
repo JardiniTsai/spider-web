@@ -8,7 +8,7 @@ The core ideas in spider-web are drawn from Felix Rieseberg's article [How to be
 
 ## What it is
 
-spider-web is an agent skill that starts only when the user explicitly names it. It first frames a vague idea or task, then expands it into a web of materially distinct possibilities, so the user can see the whole possibility space before choosing a direction or starting work. Only afterwards does it start `grill-me` to interrogate only the chosen path. No work is done until the user confirms a shared understanding. It is not a short-list generator.
+spider-web is an agent skill that starts only when the user explicitly names it. It first gathers facts when something is checkable (Stage 0), then frames a vague idea or task, then expands it into a web of materially distinct possibilities, so the user can see the whole possibility space before choosing a direction or starting work. Only afterwards does it start `grill-me` to interrogate only the chosen path. No work is done until the user confirms a shared understanding. It is not a short-list generator.
 
 This repository ships two language versions of the same skill. Both use the skill name `spider-web` and the command `$spider-web`. Install exactly one; they cannot be installed at the same time.
 

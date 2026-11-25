@@ -2,10 +2,11 @@
 name: spider-web
 description: >-
   Use only when the user explicitly names spider-web (e.g. "$spider-web", "use
-  spider web", "spider-web this") to frame and then broadly explore a vague idea
-  or task into many materially distinct possibilities before choosing or
-  building. Never start it from generic wording like "help me think of a
-  few directions" or "幫我想幾個方向".
+  spider web", "spider-web this") to gather facts when something is checkable,
+  then frame, and then broadly explore a vague idea or task into many
+  materially distinct possibilities before choosing or building. Never start
+  it from generic wording like "help me think of a few directions" or
+  "幫我想幾個方向".
 ---
 # spider-web: gather facts, then frame, expand, and hand off to grill-me
 
