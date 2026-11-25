@@ -75,7 +75,13 @@ Framing-only rules:
   - Start from the user's original wording and keep asking "After this is done, and then?", writing a higher outcome at each step up.
   - After each step, judge whether it is deliverable: within the hard constraints, can AI plus existing resources, or tools / permissions / data that can reasonably be added, produce a result in a reasonable time? List what needs to be added under "required tools / permissions / environment"; do not step back a layer solely because of that.
   - At the first layer that is "not doable, or too vague" (for example "help me make a million"), **step back one layer**. That layer is "the real desired outcome".
-  - You draft the ladder and recommend where to stop; the user decides.
+  - You draft the ladder and recommend where to stop; the user decides. When you present the ladder to the user, it must be a numbered list (1. 2. 3. …), one layer per line; do not write it as one run-on sentence. After the recommended stopping layer, append "Suggested stop" followed by a one-sentence reason. For example:
+    ```
+    1. Write an explanation page
+    2. Let first-time readers complete the steps on their own
+    3. Cut down on the same questions being asked again  Suggested stop: this layer is still deliverable within the existing constraints; the next layer becomes something too vague, like "make everything better".
+    4. Make everything better
+    ```
   - For creative topics (a work's style, copy tone, and the like), climbing further has limited value: climb one layer only, or skip the ladder with the user's agreement and record "real desired outcome = the original topic".
 - **Produce a "frame card"**, at most 10 lines:
   ```
